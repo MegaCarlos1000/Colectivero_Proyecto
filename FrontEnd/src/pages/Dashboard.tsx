@@ -14,9 +14,9 @@ const Dashboard: React.FC = () => {
             <h1>Bienvenido al Dashboard</h1>
             <p>¡Has iniciado sesión con éxito!</p>
             <div>
-                <button onClick={() => navigate('/profile')}>Ver Perfil</button>
-                <button onClick={() => navigate('/reports')}>Ver Reportes</button>
-                <button onClick={() => navigate('/Conductor')}>Registrar Conductor</button>
+                <button onClick={() => navigate('/RegistrarColectivos')}>RegistrarColectivos</button>
+                <button onClick={() => navigate('/RegistrarConductor')}>Registrar Conductor</button>
+                <button onClick={() => navigate('/Lista')}>lista</button>
                 <button onClick={handleLogout}>Cerrar Sesión</button>
             </div>
         </div>

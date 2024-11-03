@@ -2,7 +2,9 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import LoginPage from './pages/LoginPage';
 import Dashboard from './pages/Dashboard';
-import RegisterConductor from './pages/Conductor'; // Asegúrate de importar el componente
+import RegistrarColectivo from './pages/RegistrarColectivo';
+import RegistrarConductor from './pages/RegistrarConductor';
+import ListarConductores from './pages/ListarConductores';
 
 const App: React.FC = () => {
     return (
@@ -10,7 +12,9 @@ const App: React.FC = () => {
             <Routes>
                 <Route path="/" element={<LoginPage />} />
                 <Route path="/dashboard" element={<Dashboard />} />
-                <Route path="/conductor" element={<RegisterConductor />} />
+                <Route path="/RegistrarColectivos" element={<RegistrarColectivo />} />
+                <Route path="/RegistrarConductor" element={<RegistrarConductor />} />
+                <Route path="/Lista" element={<ListarConductores />} />
             </Routes>
         </Router>
     );
