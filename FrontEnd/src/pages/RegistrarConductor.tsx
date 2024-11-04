@@ -1,5 +1,3 @@
-// src/pages/RegistrarConductor.tsx
-
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
@@ -65,18 +63,14 @@ const RegistrarConductor: React.FC = () => {
 
     return (
         <div>
-            <div className={styles.headerBar}>
-                <input
-                    type="text"
-                    placeholder="Buscar vehículo por (Patente, Dueño o Modelo)"
-                    className={styles.searchInput}
-                />
-                <div className={styles.profileIcon}></div>
-            </div>
-
             <div className={styles.formContainer}>
                 <div className={styles.formHeader}>
-                    <button className={styles.backButton}>&larr;</button>
+                    <button 
+                        className={styles.backButton} 
+                        onClick={() => navigate(-1)} // Función para volver a la página anterior
+                    >
+                        &larr;
+                    </button>
                     <h2>Registrar Conductor</h2>
                 </div>
                 <form onSubmit={handleSubmit}>

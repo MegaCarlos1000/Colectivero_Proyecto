@@ -46,7 +46,13 @@ class ConductorRegistroSerializer(serializers.ModelSerializer):
 class RegistroPagoSerializer(serializers.ModelSerializer):
     class Meta:
         model = RegistroPago
-        fields = ['id', 'conductor', 'fecha', 'tarifa_pagada', 'trabajado']
+        fields = ['id', 'conductor', 'fecha', 'tarifa_pagada', 'trabajo_status']
+
+    def create(self, validated_data):
+        # Puedes agregar aquí cualquier lógica adicional antes de crear el registro
+        return super().create(validated_data)
+
+    
 
 # Serializador para el modelo ReporteMensual
 class ReporteMensualSerializer(serializers.ModelSerializer):

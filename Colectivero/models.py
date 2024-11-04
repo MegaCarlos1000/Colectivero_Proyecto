@@ -65,16 +65,35 @@ class Conductor(models.Model):
 
 # Modelo para el Registro de Pagos
 class RegistroPago(models.Model):
+    WORKED = 'worked'
+    NOT_WORKED = 'not_worked'
+    
+    WORK_STATUS_CHOICES = [
+        (WORKED, 'Trabajó'),
+        (NOT_WORKED, 'No Trabajó'),
+    ]
+    
     conductor = models.ForeignKey(Conductor, on_delete=models.CASCADE)
     fecha = models.DateField()
-    tarifa_pagada = models.DecimalField(max_digits=10, decimal_places=2)
-    trabajado = models.BooleanField(default=False)  # True si trabajó, False si no
+    tarifa_pagada = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
+    trabajo_status = models.CharField(max_length=20, choices=WORK_STATUS_CHOICES, default=NOT_WORKED)
+    pago_realizado = models.BooleanField(default=False)  # Indica si se realizó el pago
 
     class Meta:
-        unique_together = ('conductor', 'fecha')  # No permitir registros duplicados por fecha y conductor
+        unique_together = ('conductor', 'fecha')
+
+    def save(self, *args, **kwargs):
+        # Establecer la tarifa pagada automáticamente según el estado de trabajo
+        if self.trabajo_status == self.WORKED:
+            self.tarifa_pagada = 1600
+        else:
+            self.tarifa_pagada = 600
+
+        super().save(*args, **kwargs)
 
     def __str__(self):
-        return f"{self.conductor} - {self.fecha} - ${self.tarifa_pagada}"
+        return f"{self.conductor} - {self.fecha} - ${self.tarifa_pagada} - Pago realizado: {'Sí' if self.pago_realizado else 'No'}"
+
 
 # Modelo para los Reportes Mensuales
 class ReporteMensual(models.Model):

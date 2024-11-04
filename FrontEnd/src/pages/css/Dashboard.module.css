@@ -2,42 +2,127 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between; /* Asegurarse de que el contenido se distribuya correctamente */
+    min-height: 100vh;
+    background-color: #eaeaea;
     padding: 20px;
-    background-color: #f0f0f0;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: 'Arial', sans-serif;
 }
 
-.title {
-    font-size: 24px;
-    color: #333;
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    background-color: #ff5722;
+    padding: 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+.headerTitle {
+    color: white;
+    font-size: 2.5rem;
     margin-bottom: 10px;
 }
 
-.message {
-    font-size: 18px;
-    color: #666;
-    margin-bottom: 20px;
-}
-
-.buttonContainer {
+.navbar {
     display: flex;
-    flex-direction: column;
-    gap: 10px;
+    justify-content: center;
+    gap: 15px;
 }
 
-.button {
-    padding: 10px 20px;
-    font-size: 16px;
-    color: white;
-    background-color: #007bff;
-    border: none;
-    border-radius: 4px;
+.navButton, .logoutButton {
+    display: flex; /* Flex para alinear icono y texto */
+    align-items: center; /* Centrar verticalmente */
+    background-color: white;
+    color: #ff5722;
+    border: 2px solid #ff5722;
+    border-radius: 8px;
+    padding: 12px 24px;
+    font-size: 1rem;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, color 0.3s, transform 0.2s, box-shadow 0.2s;
 }
 
-.button:hover {
-    background-color: #0056b3;
+.navButton:hover, .logoutButton:hover {
+    background-color: #ff5722;
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.content {
+    text-align: center;
+    flex-grow: 1;
+    margin-top: 30px;
+}
+
+.title {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.message {
+    font-size: 1.5rem;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+.footer {
+    width: 100%;
+    background-color: #f1f1f1;
+    text-align: center;
+    padding: 15px;
+    position: relative;
+    box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.1);
+}
+
+.bottomMenu {
+    display: flex;
+    justify-content: space-around; /* Espacio igual entre los botones */
+    width: 100%;
+    background-color: #ff5722; /* Fondo para el menú inferior */
+    padding: 10px 0; /* Espacio alrededor */
+    position: relative; /* Asegurar que esté en el flujo del documento */
+    bottom: 0; /* Para que siempre esté al final */
+}
+
+.bottomButton {
+    background: transparent; /* Fondo transparente */
+    color: white; /* Color de icono */
+    border: none; /* Sin borde */
+    font-size: 1.5rem; /* Tamaño del icono */
+    cursor: pointer; /* Cambiar cursor a puntero */
+    transition: color 0.3s; /* Transición suave para el color */
+}
+
+.bottomButton:hover {
+    color: #ffccbc; /* Cambiar color al pasar el ratón */
+}
+
+/* Estilos de la tarjeta */
+.card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    margin: 20px auto;
+    width: 80%;
+    max-width: 400px;
+    text-align: center;
+    position: relative;
+    transition: transform 0.2s, box-shadow 0.3s; /* Transiciones para la animación */
+}
+
+.card:hover {
+    transform: translateY(-5px); /* Levantar la tarjeta al pasar el ratón */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Aumentar el efecto de sombra */
+}
+
+.taxiImage {
+    width: 100%; /* Ajustar el tamaño de la imagen */
+    height: auto; /* Mantener la proporción */
 }

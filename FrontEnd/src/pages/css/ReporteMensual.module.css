@@ -1,0 +1,63 @@
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff4e6;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.title {
+    text-align: center;
+    color: #f48024;
+    margin-bottom: 20px;
+}
+
+.selectContainer {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.message {
+    color: red;
+    text-align: center;
+}
+
+.report {
+    margin-top: 20px;
+}
+
+.report h3 {
+    color: #f48024;
+}
+
+.report p {
+    margin: 5px 0;
+}
+
+.registros {
+    margin-top: 10px;
+    list-style-type: none;
+    padding: 0;
+}
+
+.registroItem {
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+}

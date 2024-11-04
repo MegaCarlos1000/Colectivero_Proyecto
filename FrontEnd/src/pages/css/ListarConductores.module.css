@@ -1,0 +1,136 @@
+.headerBar {
+    background-color: #f48024;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.searchInput {
+    width: 70%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+.searchInput:focus {
+    border-color: #f48024;
+    outline: none;
+}
+
+.profileIcon {
+    width: 35px;
+    height: 35px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.formContainer {
+    background-color: #fff;
+    margin: 50px auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    width: 90%;
+    max-width: 600px;
+}
+
+.formHeader {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.backButton {
+    background: none;
+    border: none;
+    font-size: 26px;
+    cursor: pointer;
+    margin-right: 10px;
+    color: #f48024;
+    transition: color 0.3s;
+}
+
+.backButton:hover {
+    color: #c65e00;
+}
+
+h2 {
+    margin: auto;
+    color: #333;
+}
+
+.errorMessage {
+    color: red;
+    margin: 10px 0;
+}
+
+.conductorList {
+    list-style: none;
+    padding: 0;
+}
+
+.conductorItem {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    transition: background-color 0.3s;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.conductorItem:hover {
+    background-color: #f9f9f9;
+}
+
+.conductorInfo {
+    color: #333;
+}
+
+.conductorActions {
+    display: flex;
+    gap: 10px;
+}
+
+.editButton, .deleteButton {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.editButton {
+    background-color: #007bff;
+    color: white;
+}
+
+.editButton:hover {
+    background-color: #0056b3;
+}
+
+.deleteButton {
+    background-color: #dc3545;
+    color: white;
+}
+
+.deleteButton:hover {
+    background-color: #c82333;
+}
+.backButton {
+    background: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    color: #f48024;
+    transition: color 0.3s;
+}
+
+.backButton:hover {
+    color: #c65e00;
+}

@@ -1,0 +1,51 @@
+.formContainer {
+    background-color: #fff4e6;
+    margin: 50px auto;
+    padding: 2%;
+    padding-right: 4%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 400px;
+}
+
+.formHeader {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.selectInput,
+.textInput {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.buttonContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.btnAdd {
+    background-color: #f48024;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.btnAdd:hover {
+    background-color: #e67300;
+}
+
+.errorText {
+    color: red;
+    font-size: 14px;
+    margin-top: 10px;
+    text-align: center;
+}
