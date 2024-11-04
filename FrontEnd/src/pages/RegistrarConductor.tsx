@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import styles from './css/RegistrarConductor.module.css';
 
 const RegistrarConductor: React.FC = () => {
     const [email, setEmail] = useState('');
@@ -31,7 +32,6 @@ const RegistrarConductor: React.FC = () => {
         e.preventDefault();
         setError('');
 
-        // Validar que el ID del colectivo no esté vacío antes de enviar
         if (colectivoId === '') {
             setError('Por favor selecciona un colectivo.');
             return;
@@ -39,14 +39,14 @@ const RegistrarConductor: React.FC = () => {
 
         try {
             const token = localStorage.getItem('token');
-            const response = await axios.post(
+            await axios.post(
                 'http://localhost:8000/api/registrar-conductor/',
                 {
                     user: {
                         email,
                         password,
                     },
-                    colectivo: colectivoId, // ID del colectivo seleccionado
+                    colectivo: colectivoId,
                 },
                 { headers: { Authorization: `Token ${token}` } }
             );
@@ -54,8 +54,6 @@ const RegistrarConductor: React.FC = () => {
             navigate('/dashboard');
         } catch (err) {
             if (axios.isAxiosError(err) && err.response) {
-                // Mostrar el error completo
-                console.error('Error response data:', err.response.data);
                 const errorMessage = err.response.data.user?.email?.join(', ') || 
                                      'Error al registrar el conductor';
                 setError(`Error: ${errorMessage}`);
@@ -66,44 +64,63 @@ const RegistrarConductor: React.FC = () => {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
-            <h2>Registrar Conductor</h2>
-            <div>
-                <label>Email:</label>
+        <div>
+            <div className={styles.headerBar}>
                 <input
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    required
+                    type="text"
+                    placeholder="Buscar vehículo por (Patente, Dueño o Modelo)"
+                    className={styles.searchInput}
                 />
+                <div className={styles.profileIcon}></div>
             </div>
-            <div>
-                <label>Contraseña:</label>
-                <input
-                    type="password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    required
-                />
+
+            <div className={styles.formContainer}>
+                <div className={styles.formHeader}>
+                    <button className={styles.backButton}>&larr;</button>
+                    <h2>Registrar Conductor</h2>
+                </div>
+                <form onSubmit={handleSubmit}>
+                    <div>
+                        <label>Email:</label>
+                        <input
+                            type="email"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            required
+                        />
+                    </div>
+                    <div>
+                        <label>Contraseña:</label>
+                        <input
+                            type="password"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                            required
+                        />
+                    </div>
+                    <div>
+                        <label>Colectivo:</label>
+                        <select
+                            value={colectivoId}
+                            onChange={(e) => setColectivoId(Number(e.target.value))}
+                            required
+                        >
+                            <option value="">Selecciona un colectivo</option>
+                            {colectivos.map((colectivo) => (
+                                <option key={colectivo.id} value={colectivo.id}>
+                                    {colectivo.patente} - {colectivo.modelo}
+                                </option>
+                            ))}
+                        </select>
+                    </div>
+                    <div className={styles.buttonContainer}>
+                        <button type="submit" className={styles.btnAdd}>Registrar</button>
+                        <button type="button" className={styles.btnCancel} onClick={() => navigate('/dashboard')}>Cancelar</button>
+                    </div>
+                    {error && <p className={styles.errorText}>{error}</p>}
+                </form>
             </div>
-            <div>
-                <label>Colectivo:</label>
-                <select
-                    value={colectivoId}
-                    onChange={(e) => setColectivoId(Number(e.target.value))}
-                    required
-                >
-                    <option value="">Selecciona un colectivo</option>
-                    {colectivos.map((colectivo) => (
-                        <option key={colectivo.id} value={colectivo.id}>
-                            {colectivo.patente} - {colectivo.modelo}
-                        </option>
-                    ))}
-                </select>
-            </div>
-            <button type="submit">Registrar</button>
-            {error && <p>{error}</p>}
-        </form>
+        </div>
     );
 };
 

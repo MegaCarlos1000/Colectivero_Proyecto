@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import styles from './css/Dashboard.module.css';
 
 const Dashboard: React.FC = () => {
     const navigate = useNavigate();
@@ -10,14 +11,14 @@ const Dashboard: React.FC = () => {
     };
 
     return (
-        <div>
-            <h1>Bienvenido al Dashboard</h1>
-            <p>¡Has iniciado sesión con éxito!</p>
-            <div>
-                <button onClick={() => navigate('/RegistrarColectivos')}>RegistrarColectivos</button>
-                <button onClick={() => navigate('/RegistrarConductor')}>Registrar Conductor</button>
-                <button onClick={() => navigate('/Lista')}>lista</button>
-                <button onClick={handleLogout}>Cerrar Sesión</button>
+        <div className={styles.dashboard}>
+            <h1 className={styles.title}>Bienvenido al Dashboard</h1>
+            <p className={styles.message}>¡Has iniciado sesión con éxito!</p>
+            <div className={styles.buttonContainer}>
+                <button className={styles.button} onClick={() => navigate('/RegistrarColectivos')}>Registrar Colectivos</button>
+                <button className={styles.button} onClick={() => navigate('/RegistrarConductor')}>Registrar Conductor</button>
+                <button className={styles.button} onClick={() => navigate('/Lista')}>Lista</button>
+                <button className={styles.button} onClick={handleLogout}>Cerrar Sesión</button>
             </div>
         </div>
     );

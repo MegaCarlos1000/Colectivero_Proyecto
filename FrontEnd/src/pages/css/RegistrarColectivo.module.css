@@ -1,0 +1,113 @@
+.body {
+    background-color: #f5f5f0;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.headerBar {
+    background-color: #f48024;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.searchInput {
+    width: 70%;
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.profileIcon {
+    width: 30px;
+    height: 30px;
+    background-color: #ffffff;
+    border-radius: 50%;
+}
+
+.formContainer {
+    background-color: #fff4e6;
+    margin: 50px auto;
+    padding: 2%;
+    padding-right: 4%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 400px;
+}
+
+.formHeader {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.backButton {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.title {
+    margin:auto;
+}
+
+.label {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+.input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.buttonContainer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.btnAdd {
+    background-color: #f48024;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.btnAdd:hover {
+    background-color: #e67300;
+}
+
+.btnCancel {
+    background-color: #ccc;
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    margin-left: 59%;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.btnCancel:hover {
+    background-color: #b3b3b3;
+}
+
+.error {
+    color: red;
+    text-align: center;
+    margin-top: 10px;
+}
